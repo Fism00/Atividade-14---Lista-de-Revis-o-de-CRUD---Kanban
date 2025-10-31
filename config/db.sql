@@ -13,10 +13,11 @@ create table tarefa (
     nome varchar(100) not null,
     descricao text,
     status ENUM('to do','doing','done')  not null,
+    setor varchar(100) not null,
     prioridade ENUM('baixa','media','alta') not null,
     criado_em timestamp default current_timestamp,
     designado int,
-    foreign key (id) references usuario(id) 
+    foreign key (designado) references usuario(id) 
 );
 
 insert into usuario (nome, email, senha) values
