@@ -7,10 +7,10 @@
 </head>
 <body>
     
-    <a href="cadastro.php"> cadastro de usuarios</a>
+    <a href="public/cadastro.php"> cadastro de usuarios</a>
 
 <br><br>
 
-    <a href="READ_kanban.php"> ver kanban</a>
+    <a href="public/READ_kanban.php"> ver kanban</a>
 </body>
 </html>
