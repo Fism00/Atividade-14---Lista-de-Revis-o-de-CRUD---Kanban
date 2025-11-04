@@ -2,6 +2,17 @@
 
 include '../config/db.php';
 
+session_start();
+
+if (empty($_SESSION["user_id"])):
+
+    header("Location: ../index.php");
+
+endif
+
+?>
+
+<?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $name = $_POST['name'];

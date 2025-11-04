@@ -2,6 +2,18 @@
 
 include '../config/db.php';
 
+session_start();
+
+if (empty($_SESSION["user_id"])):
+
+    header("Location: ../index.php");
+
+endif
+
+?>
+
+<?php
+
 $sqlusuario = "SELECT id,nome FROM usuario";
 $resultUsuario = $conn -> query($sqlusuario);
 

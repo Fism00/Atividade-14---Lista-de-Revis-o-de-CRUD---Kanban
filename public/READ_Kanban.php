@@ -2,6 +2,17 @@
 
 include '../config/db.php';
 
+session_start();
+
+if (empty($_SESSION["user_id"])):
+
+    header("Location: ../index.php");
+
+endif
+
+?>
+
+<?php
 $sql = "SELECT * FROM tarefa";
 $verificar = $conn->query($sql);
 
