@@ -5,7 +5,9 @@ create table usuario (
     id int auto_increment primary key,
     nome varchar(100) not null,
     email varchar(100) not null unique,
-    senha varchar(255) not null
+    senha varchar(255) not null,
+    estado varchar(255)not null,
+    cidade varchar(255)not null
 );
 
 create table tarefa (
@@ -20,5 +22,5 @@ create table tarefa (
     foreign key (designado) references usuario(id) 
 );
 
-insert into usuario (nome, email, senha) values
-('Admin','admin@email.com','admin123');
+insert into usuario (nome, email, senha,estado,cidade) values
+('Admin','admin@email.com','admin123','São paulo','SP');

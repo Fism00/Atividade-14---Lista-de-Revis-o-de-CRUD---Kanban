@@ -13,20 +13,36 @@ endif
 ?>
 
 <?php
+
+
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $name = $_POST['name'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
+    $cep = $_POST['cep'];
+    
+    $url = "https://viacep.com.br/ws/{$cep}/json/";
+    
+    $response = file_get_contents($url);
+    $dados = json_decode($response, true);
 
-    $sql = " INSERT INTO usuario (nome,email,senha) VALUE ('$name','$email','$senha')";
+    $estado = $dados['localidade'];
+    $cidade = $dados['uf'];
+
+if (isset($dados['erro']) && $dados['erro'] === true) {
+        echo "CEP não encontrado!";
+    }else{
+
+    $sql = " INSERT INTO usuario (nome,email,senha,estado,cidade) VALUE ('$name','$email','$senha','$estado','$cidade')";
 
     if ($conn->query($sql) === true) {
         echo "Novo usuario criado com sucesso.";
     } else {
         echo "Erro " . $sql . '<br>' . $conn->error;
     }
-    $conn->close();
+    $conn->close();}
 }
 
 ?>
@@ -49,6 +65,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <label for="email">email:</label>
         <input type="text" name="email">
+
+        <label for="cep">cep:</label>
+        <input type="number" name="cep">
 
         <label for="senha">senha: </label>
         <input type="password" name="senha" required>
