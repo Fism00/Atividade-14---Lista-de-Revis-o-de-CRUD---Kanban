@@ -39,14 +39,6 @@ Este projeto é uma aplicação web de gerenciamento de tarefas no estilo Kanban
 
 ---
 
-## Diagramas
-### 1. **Diagrama de Caso de Uso**
-![Diagrama de Caso de Uso](assets/diagrama_caso_uso.png)
-
-### 2. **Diagrama Entidade-Relacionamento**![Diagrama ER](assets/diagrama_er.png)
-
----
-
 ## API Utilizada
 ### ViaCEP
 A API ViaCEP é utilizada para buscar informações de localização (estado e cidade) com base no CEP fornecido pelo usuário.
